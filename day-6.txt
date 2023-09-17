@@ -1,1 +1,33 @@
-test
+RDBMS
+--
+Ýliþkisel veritabaný yönetim sistemi
+ürünlerden bazýlarý: Oracle, SqlServer, MySql, Postgresql, access
+kabul edilen standart: ANSI SQL
+ürünlerin kendi standartlarý: PLSQL (oracle için), T-SQL (mssql için)
+modelleme: normalizasyon modellemeyi destekler
+
+
+NoSql
+--
+Veritabaný yönetim sistemi
+ürünlerden bazýlarý: MongoDb,Firebase
+not only sql: sadece sql deðil artým var anlamýna gelir
+iliþkisellik söz konusu ama rdbms'deki kadar katý deðil
+
+örnek: google web sitelerini index'lerken iþlenmemiþ çöplük gibi veriyi anlamlý hale getiriyor burada rdms kullanmasý söz konusu deðil onun yerine NoSql yapý kullanýyor.
+
+örnek: loglama alt yapýlarýnda nosql kullanýlýyor ve genelde json þeklinde tutulur.
+
+
+Normalizasyon
+--
+Datayý modelleme tekniðidir. Amaç veri kaçaklarýný engellemektir.
+not: tablo ismi çoðul olurken sýnýf ismi tekil yazýlýr.
+Tablolarda genelde Id sütunu yer alýr ve otomatik artan ilgili satýrý diðer satýrlardan
+ayýrt etmemize yarar.
+
+örnek: customers tablosu olsun id,name,city alaný verelim. city örnekleri: istanbul,ankara,izmir þeklinde olsun. Burada city alanýný yanlýþ yazabiliriz ya da tekrarlý verileri kullanabiliriz.(DRY Don't repeat yourself - kendini tekrar etme prensibine aykýrý hale gelmiþ olur.) City alaný sabit deðerlerden oluþtuðundan city için baþka bir tablo oluþtururuz. Cities tablosundan aldýðýmýz id deðerlerini customers tablomuzda veririz.
+
+
+
+
