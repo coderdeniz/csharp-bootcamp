@@ -26,7 +26,18 @@ not: tablo ismi çoðul olurken sýnýf ismi tekil yazýlýr.
 Tablolarda genelde Id sütunu yer alýr ve otomatik artan ilgili satýrý diðer satýrlardan
 ayýrt etmemize yarar.
 
-örnek: customers tablosu olsun id,name,city alaný verelim. city örnekleri: istanbul,ankara,izmir þeklinde olsun. Burada city alanýný yanlýþ yazabiliriz ya da tekrarlý verileri kullanabiliriz.(DRY Don't repeat yourself - kendini tekrar etme prensibine aykýrý hale gelmiþ olur.) City alaný sabit deðerlerden oluþtuðundan city için baþka bir tablo oluþtururuz. Cities tablosundan aldýðýmýz id deðerlerini customers tablomuzda veririz.
+örnek: customers tablosu olsun id,name,city alaný verelim. city örnekleri: istanbul,ankara,izmir þeklinde olsun. Burada city alanýný yanlýþ yazabiliriz ya da 
+tekrarlý verileri kullanabiliriz.(DRY Don't repeat yourself - kendini tekrar etme prensibine aykýrý hale gelmiþ olur.) City alaný sabit deðerlerden oluþtuðundan
+city için baþka bir tablo oluþtururuz. Cities tablosundan aldýðýmýz id deðerlerini customers tablomuzda veririz. Burada normal tablonun id'si PK'dir ve PK olarak belirtilen
+sütun ya da sütunlardaki satýrlar birbirinden farklý olmak zorundadýr. Bir sütundaki satýrlar farklý deðer almak zorunda olsun ama PK olmasýn istiyorsak UNIQUE olarak 
+tanýmlayabiliriz. Diðer tablonun PK'sýný kendi tablomuzda iliþkisel veritabanýný kullanmak için FK(Foreign Key) olarak tanýmlarýz. Örnekteki CityId gibi..
+
+Not: Normalizasyon'da en üst seviyeye getiremeyiz (over design). Belli baþlý durumlarý göz ardý etmemiz gerekecektir. Mesala name alaný ayný olan kullanýcýlar mevcut bunu 
+engellemek için names tablosu yapabilirdik ama isimler sabit olmadýðý farklý isimler türetilebileceði için bu durumun altýndan kalkamayýz bu yüzden names alanýndaki tekrarlamayý
+göz ardý edip, over design'den kurtuluruz.
+
+Not: VS içinde SQL Server Object Explorer ile Sql'e ulaþabiliriz.
+
 
 
 
