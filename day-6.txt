@@ -39,6 +39,28 @@ göz ardý edip, over design'den kurtuluruz.
 Not: VS içinde SQL Server Object Explorer ile Sql'e ulaþabiliriz.
 
 
+SQL
+--
+Group by: Grupladýktan sonra o grupla ilgili þart yazacaksak having ekini kullanmalýyýz.
+
+Join: iki tabloyu birleþtirmek için join'lerden yararlanýrýz. ID'si diðer tabloda bulunan tabloyu join ile bir araya getirip detaylarýný çekebiliriz.
+
+a- Inner join: iki tabloda da eþleþen datalarý getirir. Birinde var diðerinde yok ise getirmez.
+b- Left/Right join: left için solda olup saðda olmayan right için ise tam tersi durumdaki kayýtlarý getiririz.
+
+not: left/right join'lerde diðer tabloda olmayan kayýtlarý bulmak için id'si = null þartý koyabiliriz.
+
+DTO: Data Transformation Object, product için category için ayrý class'lar yapýyorsak joinler için de DTO object'ler oluþturabiliriz. Ýki sýnýftaki istenen özellikleri DTO sýnýfýnda veririz.
+
+
+
+C#
+--
+
+Bir sýnýf içerisinde baþka bir sýnýfý çaðýracaksan asla onu new'leme interface'i üzerinden çaðýr. Dependecy Injection
+iþlemini gerçekleþtir. Mesala TC doðrulama Mernis Servisini direk manager içinde çaðýrma ayrý bir validate sýnýfý oluþtur ve onun içinde gerçekleþtir daha sonra validate sýnýfýnýn interface'sini asýl manager sýnýfýnda çaðýr.
+
+
 
 
 
