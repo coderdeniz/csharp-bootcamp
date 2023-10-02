@@ -1,0 +1,6 @@
+Rest Servis Mimarisi: Ýstemci (client) ve sunucu (server) arasýnda hýzlý ve kolay bir þekilde iletiþim kurulmasýný saðlayan web tabanlý çalýþan bir servis mimarisidir. Rest servis mimarisi ile farklý sistemlerin birbirleri ile veri alýþveriþi yapýlmasýný saðlayan veri entegrasyon uygulamalarý geliþtirilmektedir.
+
+
+
+
+

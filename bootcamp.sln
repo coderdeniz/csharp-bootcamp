@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notlar", "notlar", "{3F86A293-6E3C-4278-A97B-3BEF860B72D4}"
 	ProjectSection(SolutionItems) = preProject
 		day-6.txt = day-6.txt
+		day-7.txt = day-7.txt
 	EndProjectSection
 EndProject
 Global
