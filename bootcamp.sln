@@ -9,7 +9,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notlar", "notlar", "{3F86A2
 		day-7.txt = day-7.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D1352F89-00B1-4C60-A7EF-ADA1B4DB1C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{084E3942-1C81-413F-B4BF-B945DD2A79D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{5918ED94-A1B0-4F66-A003-ABCAC48AF667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2CC13D5C-6385-4AED-A93A-A8277F81256D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1352F89-00B1-4C60-A7EF-ADA1B4DB1C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1352F89-00B1-4C60-A7EF-ADA1B4DB1C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1352F89-00B1-4C60-A7EF-ADA1B4DB1C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1352F89-00B1-4C60-A7EF-ADA1B4DB1C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{084E3942-1C81-413F-B4BF-B945DD2A79D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{084E3942-1C81-413F-B4BF-B945DD2A79D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{084E3942-1C81-413F-B4BF-B945DD2A79D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{084E3942-1C81-413F-B4BF-B945DD2A79D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5918ED94-A1B0-4F66-A003-ABCAC48AF667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5918ED94-A1B0-4F66-A003-ABCAC48AF667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5918ED94-A1B0-4F66-A003-ABCAC48AF667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5918ED94-A1B0-4F66-A003-ABCAC48AF667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC13D5C-6385-4AED-A93A-A8277F81256D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC13D5C-6385-4AED-A93A-A8277F81256D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC13D5C-6385-4AED-A93A-A8277F81256D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC13D5C-6385-4AED-A93A-A8277F81256D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,6 +1,22 @@
 Rest Servis Mimarisi: Ýstemci (client) ve sunucu (server) arasýnda hýzlý ve kolay bir þekilde iletiþim kurulmasýný saðlayan web tabanlý çalýþan bir servis mimarisidir. Rest servis mimarisi ile farklý sistemlerin birbirleri ile veri alýþveriþi yapýlmasýný saðlayan veri entegrasyon uygulamalarý geliþtirilmektedir.
 
+Abstract: Referans tutucular bu klasörde bulunur. Amaç baðýmlýlýðý minimize etmek.
+
+internal: class'larýn default eriþim bildirgeçidir, kendi projesi dýþýnda çaðrýlamayacaðýný bildirir.
 
 
+Çýplak Class Kalmasýn: Eðer ki bir class interface ya da herhangi bir inheritiance almýyorsa orada sorun vardýr. 
+
+IEntity: implement eden class bir veritabaný tablosudur. 
+
+
+DataAccess: Veri eriþimi katmanýdýr. Veritabaný ile iletiþime geçilir.
+
+
+IProductDal: I interface, Product entity, Dal katman dan gelir.
+
+interface eriþim belirteci : kendisi default olarak internal, operasyonlarý(method) public'dir.
+
+Alternatif teknoloji: Kullanýyor isek ayrý bir klasörünü oluþturmalýyýz. örnek ef, inmemory, nhibernate klasörleri gibi.
 
 
