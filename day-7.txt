@@ -20,3 +20,7 @@ interface eriþim belirteci : kendisi default olarak internal, operasyonlarý(meth
 Alternatif teknoloji: Kullanýyor isek ayrý bir klasörünü oluþturmalýyýz. örnek ef, inmemory, nhibernate klasörleri gibi.
 
 
+SingleOrDefault: Tek bir sonuç dönmesini bekleriz birden fazla dönerse hata fýrlatmasýný istediðimiz durumlarda kullanýrýz.
+
+
+readonly: yalnýzca constructor'dan atama yapýlabileceðini belirtmek için kullanýlýr.
