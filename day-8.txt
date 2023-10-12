@@ -1,0 +1,37 @@
+Generic Interface : Benzer göreve sahip interfaceleri base bir interface tutmaya yarar. Generic özelliði sayesinde her interface kendi custom class'ý üzerinde bu görevlerin imzalarýný taþýyabilir.
+
+Parametre içinde null tanýmlama: Bu iþlev, ilgili methodu çalýþtýrýrken parametre durumunu opsiyonel hale getirmek için kullanýlýr. 
+
+örnek kullaným:  List<TEntity> GetAll(Expression<Func<TEntity,bool>> filter = null){}
+
+where (generic constraint - generic kýsýt): class ya da interface'lerde where komutu ekleyerek
+generic olarak eklenecek tipi kýsýtlayabiliyoruz. 
+
+not: where þartýna class eklemek, class olmalý demek deðil referans tipli olmalý demek. örneðin string alabilir, kýzmaz.
+
+örnek kullaným: public interface IEntityRepository<TEntity>
+        where TEntity : class,IEntity,new()
+
+        class: referans tip olmalý.
+        IEntity: IEntity veya IEntity'i implement etmiþ bir tip olabilir.
+        new(): new'lenebilir olmalý. (interfaceleri elemiþ oluyoruz ayný þekilde abstract class vb.)
+
+
+ORM: Veri tabanýndaki tablolarý class ile iliþkilendirip, sql sorgularý yerine linq ile yapabildiðimiz teknoloji. Linq kümelerde(array, string vs) iþlem yapmak içindir bunu veritabanýyla iliþkilendiren orm'dir.
+
+
+NuGet: .NET framework kullanýlarak yazýlan yazýlýmlarý paketlemek ve daðýtmak için kullanýlan bir paket yöneticisidir.
+
+
+Entity Framework - Nuget: ef'ye entegre olmak için inmesi gereken paketler
+                   . entityframeworkcore.sql
+                   
+
+Context sýnýfý: db tablolarý ile proje class'larýný baðlar. EfCore'daki DbContext'i kalýtým alýr.
+
+
+
+
+
+
+
