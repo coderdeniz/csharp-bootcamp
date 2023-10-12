@@ -30,7 +30,15 @@ Entity Framework - Nuget: ef'ye entegre olmak için inmesi gereken paketler
 Context sýnýfý: db tablolarý ile proje class'larýný baðlar. EfCore'daki DbContext'i kalýtým alýr.
 
 
+Dispossable pattern: C# dilinde "Disposable Pattern" (ya da Türkçesiyle "Yýkýlabilir Desen"), özellikle bellek yönetimi ve kaynak temizliði konularýnda kullanýlan bir tasarým desenidir. 
+Disposable Pattern kullanýlarak bir sýnýf tasarlanýrken, bu sýnýfýn IDisposable arayüzünü uygulayarak, nesnenin kullanýmý tamamlandýðýnda kaynaklarý serbest býrakma sorumluluðunu programcýya veririz. Bu genellikle using ifadesiyle birlikte kullanýlýr, bu sayede nesne using bloðu içinde kullanýldýktan sonra otomatik olarak Dispose metodu çaðrýlýr ve kaynaklar serbest býrakýlýr.
 
+örnek kullaným: using (NorthwindContext context = new NorthwindContext()) { }
+
+
+SOLID'in O'su: Open Closed Principle, yaptýðýn yazýlýma yeni bir özellik ekliyorsan mevcuttaki hiç bir koduna dokunmassýn.
+
+örnek kullaným: ProductManager productManager = new ProductManager(new EfProductDal());
 
 
 
