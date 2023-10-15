@@ -4,9 +4,21 @@ using DataAccess.Concrete.InMemory;
 
 ProductManager productManager = new ProductManager(new EfProductDal());
 
-foreach (var p in productManager.GetAllByUnitPrice(3,100).OrderByDescending(p=>p.UnitPrice))
+
+//GetAllProductsByUnitPrice(productManager);
+
+CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+foreach (var category in categoryManager.GetAll())
 {
-    Console.WriteLine(p.ProductName + " - price: " + p.UnitPrice + "$");
+    Console.WriteLine(category.CategoryName);
 }
 
+
+static void GetAllProductsByUnitPrice(ProductManager productManager)
+{
+    foreach (var p in productManager.GetAllByUnitPrice(3, 100).OrderByDescending(p => p.UnitPrice))
+    {
+        Console.WriteLine(p.ProductName + " - price: " + p.UnitPrice + "$");
+    }
+}
 

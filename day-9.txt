@@ -1,0 +1,11 @@
+Generic base sýnýflar: ortak görevleri olan tek farký class olan sýnýflar için base ortak bir generic sýnýf yazýlýr bu class alaný generic tanýmlanýr ve her sýnýf kendine göre inherit eder.
+
+
+Core Katmaný: Tüm projelerde kullanýlacak evrensel kodlarý barýndýrýr. Hangi katmanla ilgileneceksek o katmanýn klasörünü altýna oluþturur ordan base code'larýmýzý yazarýz.
+
+
+EfEntityRepositoryBase: Ef için base crud iþlemlerini gerçekleþtiren sýnýf. Context sýnýfý generic olarak gönderiliyor ve base sýnýf içerisinde using bloglarý arasýnda kendini new'liyor. Entityler'de TEntity adýnda generic olarak iþlem görüyor.
+
+
+
+

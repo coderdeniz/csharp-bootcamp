@@ -40,6 +40,3 @@ SOLID'in O'su: Open Closed Principle, yaptýðýn yazýlýma yeni bir özellik ekliyor
 
 örnek kullaným: ProductManager productManager = new ProductManager(new EfProductDal());
 
-
-
-
