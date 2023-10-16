@@ -3,15 +3,14 @@ using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 
 ProductManager productManager = new ProductManager(new EfProductDal());
-
+CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
 //GetAllProductsByUnitPrice(productManager);
+//CategoryGetAll(categoryManager);
 
-CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-foreach (var category in categoryManager.GetAll())
-{
-    Console.WriteLine(category.CategoryName);
-}
+GetProductDetails(productManager);
+
+
 
 
 static void GetAllProductsByUnitPrice(ProductManager productManager)
@@ -22,3 +21,18 @@ static void GetAllProductsByUnitPrice(ProductManager productManager)
     }
 }
 
+static void CategoryGetAll(CategoryManager categoryManager)
+{
+    foreach (var category in categoryManager.GetAll())
+    {
+        Console.WriteLine(category.CategoryName);
+    }
+}
+
+static void GetProductDetails(ProductManager productManager)
+{
+    foreach (var productDetails in productManager.GetProductDetails())
+    {
+        Console.WriteLine(productDetails.ProductName + " - " + productDetails.ProductId + " - " + productDetails.CategoryName + " - " + productDetails.UnitsInStock);
+    }
+}

@@ -1,6 +1,7 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
@@ -12,8 +13,25 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfProductDal : EfEntityRepositoryBase<Product,NorthwindContext>,IProductDal
+    public class EfProductDal : EfEntityRepositoryBase<Product, NorthwindContext>, IProductDal
     {
-        
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var result = from p in context.Products.ToList()
+                             join c in context.Categories.ToList()
+                             on p.CategoryId equals c.CategoryId
+                             select new ProductDetailDto
+                             {
+                                 CategoryName= c.CategoryName,
+                                 ProductName= p.ProductName,
+                                 ProductId= p.ProductId,
+                                 UnitsInStock = p.UnitsInStock
+                             };
+
+                return result.ToList();
+            }
+        }
     }
 }

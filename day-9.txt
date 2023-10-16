@@ -7,5 +7,8 @@ Core Katmaný: Tüm projelerde kullanýlacak evrensel kodlarý barýndýrýr. Hangi kat
 EfEntityRepositoryBase: Ef için base crud iþlemlerini gerçekleþtiren sýnýf. Context sýnýfý generic olarak gönderiliyor ve base sýnýf içerisinde using bloglarý arasýnda kendini new'liyor. Entityler'de TEntity adýnda generic olarak iþlem görüyor.
 
 
+Dto sýnýflarý: Birbiriyle iliþkili sýnýflarda iki sýnýfta da göstermek istediðimiz alanlar için yeni bir Dto sýnýfý oluþturup, linq ile join'den dönen deðeri bu sýnýfa atarýz. Örnek product ve category name alanlarýný birlikte gösterebileceðimiz "ProductDetailDto" sýnýfý gibi.
+
+
 
 
