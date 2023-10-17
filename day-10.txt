@@ -1,0 +1,13 @@
+Web API: Web API (Web Application Programming Interface), web tabanlý uygulamalar arasýnda veri alýþveriþi yapmak için kullanýlan bir protokol ve arayüzdür. Web API'ler, farklý platformlardaki yazýlým uygulamalarý arasýnda iletiþim kurmayý saðlar. Bu API'ler, sunucu ve istemci arasýnda HTTP protokolü üzerinden iletiþim kurarlar. HTTP (Hypertext Transfer Protocol), web tarayýcýlarý ve sunucular arasýndaki standart iletiþim protokolüdür. Rest ve GraphQL gibi mimarileri kullanýrýz.
+
+
+REST: Representational State Transfer'ýn (Temsil Durumu Transferi) kýsaltmasýdýr ve webhizmetlerinin tasarýmý için kullanýlan bir yazýlým mimarisidir. REST, kaynaklar arasýnda temsil edilen durumu (state) transfer etmeye odaklanýr. Kaynaklar, genellikle URL'lerle belirtilen veri nesneleridir. REST, bu kaynaklara standardize edilmiþ bir þekilde eriþim saðlar ve genellikle CRUD (Create, Read, Update, Delete) iþlemlerini gerçekleþtirmek için kullanýlýr: Get,Post,Put,Patch,Delete
+ 
+
+ Core/Utilities/Results: Ýþlem sonuçlarýný kontrol edeceðimiz klasördür. Servisden dönen data, baþarýlý baþarýsýz durumlarý vs.
+
+
+ get/set property: getter'lar readonly'dir sadece contructor içerisinde deðeri alýnabilir. örnek kod: { get; }
+
+
+

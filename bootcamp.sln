@@ -5,6 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notlar", "notlar", "{3F86A293-6E3C-4278-A97B-3BEF860B72D4}"
 	ProjectSection(SolutionItems) = preProject
+		day-10.txt = day-10.txt
 		day-6.txt = day-6.txt
 		day-7.txt = day-7.txt
 		day-8.txt = day-8.txt
@@ -19,7 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2CC13D5C-6385-4AED-A93A-A8277F81256D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{5BAFD95D-2B7F-4B10-BBD0-BC4467F7CF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{5BAFD95D-2B7F-4B10-BBD0-BC4467F7CF01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
