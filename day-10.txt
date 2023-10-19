@@ -9,5 +9,21 @@ REST: Representational State Transfer'ýn (Temsil Durumu Transferi) kýsaltmasýdýr
 
  get/set property: getter'lar readonly'dir sadece contructor içerisinde deðeri alýnabilir. örnek kod: { get; }
 
+ this : sýnýf içinde birden fazla constructor olduðunda, bir constructor diðer constructor 'ýnda çalýþmasýný istediði durumlarda this komutunu kullanýrýz.
+ 
+ base: ana sýnýf, kalýtým aldýðý class'ýn constructor'ýna yönlenmek istediðinde bu keyword'ü kullanýrýz.
+
+ magic strings: stringleri hazýr þekilde deðiþken deðerinden almaya denir. 
+ örnek kullaným: new Result("kayýt baþarýyla eklendi") yerine new Result(successInsert)
+
+
+constants: sabitler demek, projede sabit deðerleri, metinler, enum'lar gibi alanlarý tuttuðumuz klasördür. Bu klasörün business katmanýnda bulunmasý gerekir.
+
+
+static: sýnýflara static verdiðimiz zaman, proje ayaktayken tek instance oluþuyor. Maliyeti yüksek olmayacak sýnýflarý static yapabiliriz.
+
+
+
+
 
 
