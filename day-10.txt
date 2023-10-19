@@ -22,7 +22,7 @@ constants: sabitler demek, projede sabit deðerleri, metinler, enum'lar gibi alan
 
 static: sýnýflara static verdiðimiz zaman, proje ayaktayken tek instance oluþuyor. Maliyeti yüksek olmayacak sýnýflarý static yapabiliriz.
 
-
+default: Bir deðiþkenin veya nesnenin varsayýlan deðerini temsil eder. örnek int: 0, string için null gibi.
 
 
 
