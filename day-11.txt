@@ -1,0 +1,32 @@
+asp.net : microsoft'un web geliþtirme ortamýnýn ve bunlarý içeren kütüphanelerinin toplandýðý bir web framework'üdür.
+
+.net : microsoft'un uygulama geliþtirme için hazýrladýðý temel framework'dür.
+
+mvc-razorpages: gibi uygulamalar'da html css js'de sunucu tarafýnda olduðu için nispeten angular, react gibi client taraflý uygulamalara göre yavaþtýr.
+
+
+controllers: gelen isteklerin karþýlandýðý kýsýmdýr.
+
+http: internet üzerinden bilgi alýþveriþi yapmak için kullanýlan bir protokoldür. Http, web tarayýcýlarýyla sunucular arasýndaki veri transferini yönetir. Bu protokol World Wide Web (WWW)'in temelini oluþturur. Web sayfalarýný görüntülemek,indirmek veya göndermek için kullanýlýr. Http, genellikle TCP üzerinde çalýþýr ve standart olarak 80 numaralý portu kullanýr. Web tarayýcýlarýndan web sitelerine, API çaðrýlarýna kadar birçok internet uygulamasý HTTP'yi kullanýr.
+
+
+api isimlendirme: çoðul þekilde verilir. sonunda -s takýsý olur.
+
+
+controller sýnýfý: bir controller'in controller olabilmesi için ControllerBase'den inherit almasý ve ApiController attribute'i olmasý gerekiyor.
+
+
+attribute: bir class ile ilgili bilgi verme imzalama yöntemidir.
+
+route: ilgili controller'a nasýl istek atýlmasý gerektiðini gösterir. [Route("api/[controller]")]
+
+
+json: bir formattýr. objeleri temsil etmek için süslü parantez kullanýlýr. özellik-deðer þeklindedir. birden fazla obje varsa köþeli parantez ile dizi olduðunu belirtir. restfull mimariler json format üzerinde ilerler.
+
+
+Loosely coupled: gevþek baðýmlýlýk, bir baðýmlýlýða ihtiyaç duyuyor ama soyuta baðýmlýlýk.
+
+
+
+
+
