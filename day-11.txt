@@ -26,7 +26,59 @@ json: bir formattýr. objeleri temsil etmek için süslü parantez kullanýlýr. özell
 
 Loosely coupled: gevþek baðýmlýlýk, bir baðýmlýlýða ihtiyaç duyuyor ama soyuta baðýmlýlýk.
 
+IoC Container: Inversion of control, kontrolün tersine çevrilmesi demek. Bellekte bir liste gibi düþünebilir içerisine new ProductManager(), new EfProductDal() gibi referanslar koyabiliriz, kim neye ihtiyaç duyuyorsa bu listeden gereken referansýný alabilsin. web api'nin kendi içerisinde (built-in) ioc yapýlandýrmasý var. (IServiceCollection içerisinde)
+  örnek ioc barýndýran kütüphaneler; autofac, ninject, castlewindsor..
+
+AddSingleton: Tüm bellekte bir tane referans oluþturuyor, isterse 1 milyon client gelsin hepsine ayný instance verilir. Ýçerisinde data tutmadýðýmýz kýsýmlarda singleton kullanabiliriz. Mesela sepet ekleme gibi iþlerde kullanýlmaz çünkü her müþterinin ortak sepeti olur.
+
+
+AddScoped ile AddTransient: Ýkiside her isteðe ait bir instance oluþturuyor. Ama ayný client üzerinde birden fazla istek geldiðinde (ayný interface'den üretilmiþ 2 farklý nesne olsun) scoped ayný nesneyi dönerken, transient farklý instance'lar oluþturur.
+
+
+AOP: Bir methodun önünde, sonunda bir method hata verdiðinde çalýþan kod parçacýklarýný aop mimarisi ile yazýyoruz. Yani business içerisinde business yazýlýr. Örneðin loglama,validasyon,caching gibi altyapýlarý aop ile yazabiliyoruz. Autofac'de AOP imkaný olduðu için dotnet'in built-in ioc yerine bu kütüphaneyi kullanacaðýz.
+
+
+Birden fazla get/post methodu olursa: Program çalýþmaz çünkü get/post yaptýðýmýzda hangi methoda gideceðini bilemez. Çözüm için attribute'a isim verebiliriz. Örnek: [HttpGet("GetAll")] veya attribute'da route yapýlandýrmasý yapabiliriz.
+
+
+attribute isim verdiðmizde oluþacak örnek link: https://localhost:7120/api/products/getbyid?productid=1  QueryString ile ayýrýrýz parametreden vermek istediklerimizi.
+
+
+routing ile yapsaydýk örnek link: https://localhost:7120/api/products/getbyid/1
+olurdu.
+
+
+put/delete: güncelleme ve silme için put ve delete kullanýlýr fakat sektörde genelde post ile bu iþlemler yapýlýr.
 
 
 
+
+Http Statüs Kodlarý: 
+
+200 (OK): bir HTTP isteðinin baþarýyla iþlendiðini ve sunucunun istemcinin isteðini baþarýyla yerine getirdiðini belirtir. Yani, sunucu istemcinin isteðini doðru þekilde aldý, iþledi ve doðru sonucu geri döndürdü.
+
+201 (Created): bir HTTP isteðinin baþarýyla iþlendiðini ve sunucunun yeni bir kaynak oluþturduðunu belirtir. Bu kod, özellikle POST istekleri sonucunda kullanýlýr. Örneðin, bir kullanýcýnýn bir kaynak oluþturduðu bir web formu gönderdiðinde ve sunucu bu formu baþarýyla aldýysa ve yeni bir kaynak oluþturduysa, sunucu tarafýndan 201 Created kodu gönderilir. Bu durumda, istemci, yeni oluþturulan kaynaðýn URI'sini genellikle "Location" baþlýðý altýnda bulabilir ve bu URI üzerinden yeni kaynaða eriþebilir.
+
+301 (Moved Permanently):  HTTP statü kodu, bir kaynaðýn kalýcý olarak baþka bir URI'ye taþýndýðýný ve gelecekteki isteklerin bu yeni URI'ye yönlendirilmesi gerektiðini belirtir. Bu kod, bir web sitesindeki sayfalarýn veya kaynaklarýn URI'lerinin deðiþtirildiði durumlarda kullanýlýr. Bu durumda, tarayýcýlar veya diðer istemciler, talep ettikleri kaynaðý yeniden talep etmek yerine, otomatik olarak yeni URI'yi kullanarak doðrudan yönlendirilecektir. Bu, özellikle web sitesi sahipleri bir sayfayý veya kaynaðý baþka bir URL'ye taþýdýklarýnda, arama motorlarý ve diðer istemciler için önemlidir. Bu þekilde, kullanýcýlar doðru kaynaða yönlendirilir ve sayfa bulunamama veya hatalý baðlantý gibi problemler önlenmiþ olur.
+
+
+400 (Bad request): HTTP statü kodu, sunucunun, istemcinin yaptýðý HTTP isteðini anlamadýðýný veya iþleyemediðini belirtir. Bu durumda, sunucu isteði anlamýyorsa veya isteði doðru þekilde iþleyemeyecek durumdaysa bu kod döndürülür. Bu hata, istemci tarafýndan gönderilen isteðin hatalý olduðunu belirterek, gelecekteki isteklerin doðru formatta ve doðru verilerle gönderilmesi gerektiðini gösterir.
+
+
+401 (Unauthorized): HTTP statü kodu, bir istemcinin yetkisiz bir þekilde kaynaða eriþmeye çalýþtýðýný belirtir. Bu durumda, sunucu, istemcinin isteði için kimlik doðrulama yapmasý gerektiðini bildirir. Yani, istemci doðru kimlik bilgileriyle kaynaða eriþmeye çalýþmadýðý sürece, sunucu bu isteði reddeder ve "401 Unauthorized" hatasý döndürür. Bu hata genellikle kullanýcý adý ve parola gibi kimlik doðrulama bilgilerinin eksik veya hatalý olduðu durumda ortaya çýkar. Ýstemci, yetkili olmayan bir kaynaða eriþim talebinde bulunurken, sunucu, istemcinin saðladýðý kimlik bilgilerini doðrulayamazsa bu hatayý döndürebilir. Bu durumda, istemci, doðru kimlik bilgilerini saðlayarak veya yetkili bir oturum açarak kaynaða eriþim saðlayabilir.
+
+
+403 (Forbidden): HTTP statü kodu, istemcinin belirli bir kaynaða eriþim yetkisi olmadýðýný belirtir. Bu durumda, sunucu, istemcinin isteði için yetkilendirilmediðini ve istemcinin kaynaða eriþim izni olmadýðýný bildirir.  Örneðin, bir kullanýcýnýn belirli bir dosyayý veya klasörü görüntüleme veya deðiþtirme izni olmadýðýnda, sunucu "403 Forbidden" hatasý döndürür. Bu hata, kaynaða eriþim yetkisi olmayan kullanýcýlara karþý koruma saðlamak için kullanýlýr. Kullanýcýlarýn veya istemcilerin belirli bir kaynaða eriþim izni olup olmadýðýný doðrulamak için genellikle kimlik doðrulama (authentication) ve yetkilendirme (authorization) mekanizmalarý kullanýlýr. Kimlik doðrulama, kullanýcýnýn kimliðini doðrulamak için kullanýlýrken, yetkilendirme, doðrulanan kullanýcýnýn belirli kaynaklara eriþim izinlerini kontrol etmek için kullanýlýr. Eðer kullanýcý belirli bir kaynaða eriþim izni yoksa, sunucu "403 Forbidden" hatasý döndürerek eriþimi reddeder.
+
+
+Not:  "401 Unauthorized" hatasý istemcinin kimlik doðrulama yapmasý gerektiðini, ancak doðrulamanýn gerçekleþtirilmediðini belirtirken, "403 Forbidden" hatasý, istemcinin kimlik doðrulamasýný baþarýyla tamamlamýþ olsa bile, belirli bir kaynaða eriþim izni olmadýðýný belirtir ve isteði reddeder.
+
+
+404 (Not Found): HTTP statü kodu, bir istemcinin talep ettiði kaynaðýn sunucu tarafýndan bulunamadýðýný belirtir. Yani, istemcinin talep ettiði URI (Uniform Resource Identifier) veya URL (Uniform Resource Locator) geçerli deðil veya var olan bir kaynaðý iþaret etmiyorsa, sunucu "404 Not Found" hatasý döndürür. Bu hata, web tarayýcýsý gibi istemcilerin belirli bir web sayfasýný veya kaynaðý görüntülemeye çalýþtýðýnda, ancak sunucunun bu kaynaðý bulamadýðýnda ortaya çýkar. Bu durum, kaynaðýn yanlýþ yazýlmýþ bir URL'ye sahip olmasý, kaynaðýn sunucu tarafýndan silinmiþ olmasý veya kaynaðýn taþýnmýþ ve yeni bir konumda bulunuyor olmasý gibi durumlarla iliþkilendirilebilir. "404 Not Found" hatasý, kullanýcýlara, talep ettikleri kaynaðýn mevcut olmadýðýný ve bulunamadýðýný bildirir. Bu sayede kullanýcýlar, hatalý URL'leri düzeltmeyi veya var olan kaynaklara eriþim saðlamak için doðru URL'yi kullanmayý deneyebilirler.
+
+
+500 (Internal Server Error): HTTP statü kodu, bir web sunucusunun istemcinin yaptýðý bir HTTP isteðini iþlerken karþýlaþtýðý genel bir hata durumunu belirtir. Bu hata, sunucu tarafýnda beklenmeyen bir durumun oluþtuðunu ve isteðin baþarýlý bir þekilde iþlenemediðini ifade eder. "500 Internal Server Error" hatasý, sunucudaki bir hata sonucu oluþtuðu için genellikle kullanýcýlarýn kontrolü dýþýnda gerçekleþir. Bu tür hatalar, sunucu tarafýndaki yazýlým veya yapýlandýrma sorunlarýndan kaynaklanabilir. Örneðin, sunucu tarafýnda çalýþan bir uygulamanýn beklenmeyen bir hata nedeniyle çökmesi, veritabaný baðlantý sorunlarý veya sunucudaki kaynaklarýn yetersiz olmasý gibi durumlar "500 Internal Server Error" hatasýna neden olabilir. Bu hatayý alan kullanýcýlar genellikle yapabilecekleri bir þey olmadýðýndan, hata genellikle sunucu yöneticileri veya web sitesi geliþtiricileri tarafýndan çözülür. Kullanýcýlar, böyle bir hatayla karþýlaþtýklarýnda, genellikle bir süre bekleyip daha sonra tekrar denemeyi veya web sitesi yöneticilerine durumu bildirmeyi tercih ederler.
+
+
+502 (Bad Gateway): HTTP statü kodu, bir sunucunun, baþka bir sunucudan veya servisten gelen geçersiz bir yanýt aldýðýný ve bu nedenle istemcinin talebini tamamlayamadýðýný belirtir. Bu hata genellikle bir að geçidi veya bir proxy sunucu aracýlýðýyla sunucular arasýndaki iletiþimde sorun olduðunda ortaya çýkar. "502 Bad Gateway" hatasý, istemci sunucu ile iletiþim kurmaya çalýþtýðýnda, aradaki bir sunucunun beklenen yanýtý alamayarak bu hatayý oluþturduðunu ifade eder. "502 Bad Gateway" hatasýný alan kullanýcýlar genellikle bu hatayý kontrol edebilecekleri bir þey yapamazlar. Bu hatayý gördüklerinde, genellikle bir süre bekleyip daha sonra tekrar denemeyi veya web sitesi yöneticilerine veya sistem yöneticilerine durumu bildirmeyi tercih ederler.
 

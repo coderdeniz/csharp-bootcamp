@@ -38,7 +38,7 @@ namespace Business.Concrete
             // iş kodları yazılır
             // yetkisi var mı?
 
-            if (DateTime.Now.Hour == 14)
+            if (DateTime.Now.Hour == 16)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
