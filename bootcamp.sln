@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notlar", "notlar", "{3F86A2
 	ProjectSection(SolutionItems) = preProject
 		day-10.txt = day-10.txt
 		day-11.txt = day-11.txt
+		day-12.txt = day-12.txt
 		day-6.txt = day-6.txt
 		day-7.txt = day-7.txt
 		day-8.txt = day-8.txt
@@ -23,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\Cons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{5BAFD95D-2B7F-4B10-BBD0-BC4467F7CF01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{EDA9BCCA-5048-4A56-B0ED-FA8D9CFB0E57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{EDA9BCCA-5048-4A56-B0ED-FA8D9CFB0E57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

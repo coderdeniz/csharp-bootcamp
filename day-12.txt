@@ -1,0 +1,13 @@
+
+Autofac: IOC container, projedeki baðýmlýlýklarý çözebilmemizi yarar buna benzer yapý dotnet'de built-in'de mevcut fakat interception gibi aop destekli çalýþmalarda yardýmcý olmasý için autofac kulllanýyoruz.
+
+not: dependency'ler genelde business katmanýnda yapýlýr api'de yapýlýrsa birden fazla api eklenmesi durumunda her birine teker teker eklemek durumunda kalýrýz.
+
+paketler: autofac ve interception için autofac.extras.dynamicproxy
+
+not: business içerisinde dependencyresolvers/autofac içerisinde baðýmlýlýklarýmýzý çözeceðimiz klasör.
+
+örnek kullaným:  builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
+data kullanýlmadýðý için (data taþýma dýþýnda) built-in'deki singleton karþýlýðý singleInstance diyoruz.
+
+
