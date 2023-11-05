@@ -27,4 +27,13 @@ Cross Cutting Concerns: Uygulamalarý dikine kesen yapýlara denir, yani her katma
 Fluent Validation'da bir CCC olduðu için onu da CCC'ye alabilir yani Core katmanýnda.
 
 
+Interceptors: araya girmek anlamýna gelir, methodun baþýnda sonunda gibi yapýlmasý gereken kýsýmlar yazýlýr.
+
+
+
+
+reflection: çalýþma anýnda new'lemek istediðimiz class'larýn new'lenmesine yarýyor.
+
+
+
 
