@@ -1,0 +1,29 @@
+
+
+Cross Custting Concerns yani uygulamalarý dikine kesen yapýlar mesala:
+Log, Cache, Validation, Transaction, Authorization
+
+Log: kim ne zaman nerede ne ekledi gibi alanlarý tuttuðumuz yapý.
+
+IsAssignableFrom: verdiðin tip ilgili typeof'a atanabiliyor mu onu kontrol etmeye yarar.
+
+
+not: bir projede kurallar comment'leniyor ise burada zaafiyet var denir.
+
+params operatörü ile istediðimiz kadar parametre geçebiliyoruz. (params IResult[] logics) gibi.
+
+
+BusinessRules'da iþ moturu yazýyoruz. Business içerisinde iç içe if'lerden kurtulmuþ oluoyuruz.
+
+
+not: method statik tanýmlanýrsa class'ýn static tanýmlanmasýna gerek yoktur.
+
+
+bir manager sýnýfý baþka bir manager sýnýfýnýn dal'ýný enjekte etmek yerine oun managerini enjekte etmelidir. her dal'ýn kuralý onun maager sýnýfýný ilgilendirir.
+
+her entity'nin kendi servisi olmalýdýr.
+
+
+
+
+
