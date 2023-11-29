@@ -1,0 +1,25 @@
+
+Yetkilendirme kýsmýný API'da yapýyoruz. Çünkü bu API'yi kullanan yapýlarda MVC gibi yetkilendirmeyi kullanýrsak, her bu API'yi kullanmak isteyen yapýda yetkilendirme iþlemi yapmak zorunda kalacaktýk.
+
+claim: iddia etmek, kullanýcýnýn sahip olduðu haklar
+
+
+Api ve Client'i örnek alalým. Her bir tarayýcý client'tir.(chrome, firefox gibi). Operasyonumuz yetki gerektiryorsa,
+-> Client API'ya istekte bulunur. Api yetkin yok döner.
+-> Client kullanýcý adý þifresini döner, API Client'a bilgileri doðruysa JWT verecektir.
+-> Client jwt kendi hafýzasýnda tutacak (cookie, localstorage, mobil cihazda bir yer olabilir).
+-> Client API'ye istekte bulunur. (jwt ile). API jwt'ye bakýp kontrol ediyor eðer böyle bir yetkili kullanýcý var ise isteðini olumlu döner yoksa yetkilendirme hatasý verir.
+
+
+Encryption, Hashing kavramlarý; bir datayý karþý taraf okuyamasýn diye yapýlan çalýþmalardýr.
+
+bazý þifreleme algoritmalarý: MD5, SHA1 gibi geri dönüþtürülemeyen algoritmalar vardýr. Kullanýcýlarýn password'leri db'de hashlenmiþ þekilde tutulur.
+
+Salting: Hashlenecek dataya özel biz de ek data ekleyip (özel þifre) tuzlama yapýyoruz. Örnek: 123projeicinözelsifre456 gibi
+
+Encryption'da ise ilgili data encrypt ediliyor ve ayný yapýnýn tersi kullanýlarak decrypt edilebiliyor.
+
+
+
+
+
