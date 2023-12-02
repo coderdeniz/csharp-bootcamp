@@ -19,6 +19,16 @@ Salting: Hashlenecek dataya özel biz de ek data ekleyip (özel þifre) tuzlama yap
 
 Encryption'da ise ilgili data encrypt ediliyor ve ayný yapýnýn tersi kullanýlarak decrypt edilebiliyor.
 
+Yani encryption data'ya uygulanan bir þey iken hashing'de dataya dokunmuyoruz o dataya göre random deðer atamasýný yapýyoruz.
+
+
+jwt için entity'leri core'da tanýmlayabiliriz.
+
+credentials: anahtar demek. (user email pass ile giriþ yapman gibi)
+
+senaryo: kullanýcý email/pass yazdý api'ye istek attý. bilgileri doðruysa user bilgilerini yetki bilgileriyle birlikte(admin vs) createToken metodu çaðrýlacak.
+
+
 
 
 
