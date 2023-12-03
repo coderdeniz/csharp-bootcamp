@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Core.Entities.Concrete;
+using Core.Extensions;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT.Abstract;
 using Microsoft.Extensions.Configuration;
@@ -51,12 +52,12 @@ namespace Core.Utilities.Security.JWT
                 claims: SetClaims(user, operationClaims),
                 signingCredentials: signingCredentials
             );
-            return jwt;
+            return jwt; 
         }
 
         private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)
         {
-            var claims = new List<Claim>();
+            var claims = new List<Claim>();           
             claims.AddNameIdentifier(user.Id.ToString());
             claims.AddEmail(user.Email);
             claims.AddName($"{user.FirstName} {user.LastName}");
