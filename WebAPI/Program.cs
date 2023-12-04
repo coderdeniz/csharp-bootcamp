@@ -3,8 +3,13 @@ using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
 using Business.DependencyResolvers.Autofac;
+using Core.Utilities.IoC;
+using Core.Utilities.Security.Encryption;
+using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +19,6 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     {
         builder.RegisterModule(new AutofacBusinessModule());
     });
-
-
 
 
 // Add services to the container.
@@ -29,7 +32,34 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddSingleton<IProductDal, EfProductDal>();
 
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("AllowOrigin", builder => builder.WithOrigins("http://localhost:7120"));
+});
+ 
+var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     .AddJwtBearer(options =>
+     {
+         options.TokenValidationParameters = new TokenValidationParameters
+         {
+             ValidateIssuer = true,
+             ValidateAudience = true,
+             ValidateLifetime = true,
+             ValidIssuer = tokenOptions.Issuer,
+             ValidAudience = tokenOptions.Audience,
+             ValidateIssuerSigningKey = true,
+             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+         };
+     });
+
+
+// ServiceTool.Create(builder.Services);
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
+ServiceTool.Create(builder.Services);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -39,6 +69,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
