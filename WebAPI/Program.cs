@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
 using Business.DependencyResolvers.Autofac;
+using Core.DependencyResolvers;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
@@ -10,6 +11,7 @@ using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,8 +60,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // ServiceTool.Create(builder.Services);
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddDependencyResolvers(new ICoreModule[]
+{
+    new CoreModule(),
+});
+
 var app = builder.Build();
-ServiceTool.Create(builder.Services);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
